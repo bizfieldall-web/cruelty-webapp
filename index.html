@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>퍼즐 게임 웹앱</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header>
+        <h1>사진 슬라이딩 퍼즐</h1>
+        <p>난이도(별)를 선택하고 사진을 올린 다음, 타일을 밀어서 원본 사진을 완성해보세요.</p>
+      </header>
+
+      <section class="controls">
+        <label for="difficulty">난이도(별)</label>
+        <select id="difficulty">
+          <option value="7">⭐⭐⭐⭐⭐⭐⭐ (10×10)</option>
+          <option value="6">⭐⭐⭐⭐⭐⭐ (9×9)</option>
+          <option value="5">⭐⭐⭐⭐⭐ (8×8)</option>
+          <option value="4">⭐⭐⭐⭐ (7×7)</option>
+          <option value="3">⭐⭐⭐ (6×6)</option>
+          <option value="2">⭐⭐ (5×5)</option>
+          <option value="1" selected>⭐ (4×4)</option>
+        </select>
+
+        <label for="rows">행</label>
+        <input id="rows" type="number" value="4" readonly />
+
+        <label for="cols">열</label>
+        <input id="cols" type="number" value="4" readonly />
+
+        <label for="imageUpload">사진 업로드</label>
+        <input id="imageUpload" type="file" accept="image/*" />
+
+        <button id="newGameBtn">새 게임 시작</button>
+        <button id="shuffleBtn">다시 섞기</button>
+
+        <label class="toggle">
+          <input id="showOriginal" type="checkbox" checked />
+          <span>원본 사진 보기</span>
+        </label>
+      </section>
+
+      <section class="board-area">
+        <div>
+          <h2>퍼즐 보드</h2>
+          <div id="puzzleBoard" class="board" aria-label="슬라이딩 퍼즐 보드"></div>
+          <p id="status">난이도를 선택해 시작하세요.</p>
+        </div>
+
+        <aside id="originalWrap" class="original-wrap">
+          <h2>원본 사진</h2>
+          <img id="originalPreview" alt="원본 미리보기" />
+        </aside>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
